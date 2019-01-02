@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vision2.Api.Model;
-using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using System.Text;
 using Vision2.Api.Extensions;
+using Vision2.Api.Model;
 
 namespace Vision2.Api {
     public class Vision2Client {
