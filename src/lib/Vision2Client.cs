@@ -30,7 +30,6 @@ namespace Vision2.Api {
 
                 var url = new Uri(options.IsStaging ? $"https://{options.TenantCode}.v2sdemo.com" : $"https://{options.TenantCode}.vision2systems.com");
 
-                // httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", System.Convert.ToBase64String(toEncodeAsBytes, 0, toEncodeAsBytes.Length));
                 var response = await httpClient.PostAsync($"{url}/token", content);
                 var responseContent = await response.Content.ReadAsStringAsync();
 
@@ -42,6 +41,10 @@ namespace Vision2.Api {
                 if (!string.IsNullOrEmpty(responseContent) && responseContent.Contains("error")) {
                     var responseError = responseContent.FromJson<dynamic>();
                     v2Response.ErrorMessage = responseError.error_message;
+                }
+                else if (responseContent.Replace("\"", "") == "null") {
+                    v2Response.ErrorMessage = "Bad username / password";
+                    v2Response.StatusCode = System.Net.HttpStatusCode.BadRequest;
                 }
                 else {
                     v2Response.Data = responseContent.FromJson<Vision2Token>();
