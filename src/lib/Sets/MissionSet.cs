@@ -21,8 +21,8 @@ namespace Vision2.Api.Sets {
 
         protected override string GetUrl => _getUrl;
 
-        public IVision2Response<Vision2PagedResponse<List<Mission>>> Find(MissionQO qo) {
-            return Search<List<Mission>>(qo);
+        public IVision2RestResponse<Vision2PagedResponse<Mission>> Find(MissionQO qo) {
+            return Search<Mission>(qo);
         }
     }
 }

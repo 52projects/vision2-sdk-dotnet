@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using Vision2.Api.QueryObject;
 
 namespace Vision2.Api.Sets {
-    public class FundSet : BaseApiSet<Mission> {
+    public class FundSet : BaseApiSet<Fund> {
         private const string _searchUrl = "/search/fund";
         private const string _getUrl = "/fund/{0}";
 
@@ -21,8 +21,8 @@ namespace Vision2.Api.Sets {
 
         protected override string GetUrl => _getUrl;
 
-        public IVision2Response<Vision2PagedResponse<List<Fund>>> Find(FundQO qo) {
-            return Search<List<Fund>>(qo);
+        public IVision2RestResponse<Vision2PagedResponse<Fund>> Find(FundQO qo) {
+            return Search<Fund>(qo);
         }
     }
 }

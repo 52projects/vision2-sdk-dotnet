@@ -78,7 +78,7 @@ namespace Vision2.Api {
         #endregion Constructor
 
         #region Actions
-        public virtual IVision2Response<List<T>> List() {
+        public virtual IVision2RestResponse<List<T>> List() {
             if (string.IsNullOrWhiteSpace(ListUrl)) {
                 throw new NotImplementedException("The property ListUrl has no value on the ApiSet.");
             }
@@ -88,7 +88,7 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<List<T>> List(string parentID) {
+        public virtual IVision2RestResponse<List<T>> List(string parentID) {
             if (string.IsNullOrWhiteSpace(GetChildListUrl)) {
                 throw new NotImplementedException("The property GetChildListUrl has no value on the ApiSet.");
             }
@@ -99,19 +99,19 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public IVision2Response<List<S>> ListBySuffixUrl<S>(string url) where S : new() {
+        public IVision2RestResponse<List<S>> ListBySuffixUrl<S>(string url) where S : new() {
             var request = CreateRestRequest(Method.GET, url);
             var item = ExecuteCustomRequest<List<S>>(request);
 
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<T> Get(string id) {
+        public virtual IVision2RestResponse<Vision2Response<T>> Get(string id) {
             if (string.IsNullOrWhiteSpace(GetUrl)) {
                 throw new NotImplementedException("The property GetUrl has no value on the ApiSet.");
             }
             var request = CreateRestRequest(Method.GET, string.Format(GetUrl, id));
-            var item = ExecuteRequest(request);
+            var item = ExecuteCustomRequest<Vision2Response<T>>(request);
 
             return item.ToVision2Response();
         }
@@ -122,39 +122,39 @@ namespace Vision2.Api {
         /// <param name="parentID">The parent ID</param>
         /// <param name="id">The child ID</param>
         /// <returns>Returns a generic object (T)</returns>
-        public virtual IVision2Response<T> Get(string parentID, string id) {
+        public virtual IVision2RestResponse<Vision2Response<T>> Get(string parentID, string id) {
             if (string.IsNullOrWhiteSpace(GetChildUrl)) {
                 throw new NotImplementedException("The property GetChildUrl has no value on the ApiSet.");
             }
 
             var request = CreateRestRequest(Method.GET, string.Format(GetChildUrl, parentID, id));
-            var item = ExecuteRequest(request);
+            var item = ExecuteCustomRequest<Vision2Response<T>>(request);
 
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<T> GetByUrl(string url) {
+        public virtual IVision2RestResponse<Vision2Response<T>> GetByUrl(string url) {
             var request = CreateRestRequest(Method.GET, url.Substring(_baseUrl.Length));
-            var item = ExecuteRequest(request);
+            var item = ExecuteCustomRequest<Vision2Response<T>>(request);
 
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<S> GetBySuffixUrl<S>(string url) where S : new() {
+        public virtual IVision2RestResponse<S> GetBySuffixUrl<S>(string url) where S : new() {
             var request = CreateRestRequest(Method.GET, url);
             var item = ExecuteCustomRequest<S>(request);
 
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response GetBySuffixUrl(string url) {
+        public virtual IVision2RestResponse GetBySuffixUrl(string url) {
             var request = CreateRestRequest(Method.GET, url);
             var item = ExecuteGenericRequest(request);
 
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<Vision2PagedResponse<S>> Search<S>(BaseQO qo) where S : new() {
+        public virtual IVision2RestResponse<Vision2PagedResponse<S>> Search<S>(BaseQO qo) where S : new() {
             if (string.IsNullOrWhiteSpace(SearchUrl)) {
                 throw new NotImplementedException("The property SearchUrl has no value on the ApiSet.");
             }
@@ -176,7 +176,7 @@ namespace Vision2.Api {
             return response;
         }
 
-        public virtual IVision2Response Create(byte[] stream, string url = "") {
+        public virtual IVision2RestResponse Create(byte[] stream, string url = "") {
             var targetUrl = string.Empty;
             if (!string.IsNullOrWhiteSpace(url)) {
                 if (url.Trim().Length <= _baseUrl.Length) {
@@ -196,7 +196,7 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<T> Create(byte[] stream, string url = "", string fileParamaterName = "stream", string fileName = "", string fileType = "") {
+        public virtual IVision2RestResponse<T> Create(byte[] stream, string url = "", string fileParamaterName = "stream", string fileName = "", string fileType = "") {
             var targetUrl = string.Empty;
             if (!string.IsNullOrWhiteSpace(url)) {
                 if (url.Trim().Length <= _baseUrl.Length) {
@@ -217,7 +217,7 @@ namespace Vision2.Api {
             return response.ToVision2Response();
         }
 
-        public virtual IVision2Response Create<S>(S entity, string url = "") where S : new() {
+        public virtual IVision2RestResponse Create<S>(S entity, string url = "") where S : new() {
             var targetUrl = string.Empty;
 
             if (!string.IsNullOrWhiteSpace(url)) {
@@ -252,7 +252,7 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<T> Create(T entity, string url = "") {
+        public virtual IVision2RestResponse<T> Create(T entity, string url = "") {
             var targetUrl = string.Empty;
 
             if (!string.IsNullOrWhiteSpace(url)) {
@@ -287,7 +287,7 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<T> Create(T entity, out string requestXml, string url = "") {
+        public virtual IVision2RestResponse<T> Create(T entity, out string requestXml, string url = "") {
             requestXml = entity.ToXml();
             var targetUrl = string.Empty;
 
@@ -319,7 +319,7 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response Update(byte[] stream, string url = "", string filename = "", string fileType = "") {
+        public virtual IVision2RestResponse Update(byte[] stream, string url = "", string filename = "", string fileType = "") {
             var targetUrl = string.Empty;
             if (!string.IsNullOrWhiteSpace(url)) {
                 if (url.Trim().Length <= _baseUrl.Length) {
@@ -340,7 +340,7 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<T> Update(T entity, string id) {
+        public virtual IVision2RestResponse<T> Update(T entity, string id) {
             if (string.IsNullOrWhiteSpace(EditUrl)) {
                 throw new NotImplementedException("The property EditUrl has no value on the ApiSet.");
             }
@@ -357,7 +357,7 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<T> Update(T entity, string id, out string requestXml) {
+        public virtual IVision2RestResponse<T> Update(T entity, string id, out string requestXml) {
             if (string.IsNullOrWhiteSpace(EditUrl)) {
                 throw new NotImplementedException("The property EditUrl has no value on the ApiSet.");
             }
@@ -375,7 +375,7 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response Delete(string id) {
+        public virtual IVision2RestResponse Delete(string id) {
             if (string.IsNullOrWhiteSpace(EditUrl)) {
                 throw new NotImplementedException("The property EditUrl has no value on the ApiSet.");
             }
@@ -410,25 +410,13 @@ namespace Vision2.Api {
 
             var response = client.Execute<T>(request);
 
-            if ((int)response.StatusCode >= 400) {
-                throw new ApiAccessException(response.Content) {
-                    StatusCode = response.StatusCode,
-                    StatusDescription = response.StatusDescription,
-                    RequestUrl = response.ResponseUri.AbsoluteUri
-                };
-            }
-
-            if ((int)response.StatusCode >= 300) {
+            if ((int)response.StatusCode >= 300 && (int)response.StatusCode < 400) {
                 var location = response.Headers.SingleOrDefault(x => x.Name == "Location");
 
                 if (location != null) {
                     request = CreateRestRequest(Method.GET, location.Value.ToString().Substring(_baseUrl.Length));
                     response = ExecuteRequest(request);
                 }
-            }
-
-            if (!string.IsNullOrEmpty(response.ErrorMessage)) {
-                throw new ApiAccessException(response.ErrorMessage);
             }
 
             return response;
@@ -439,15 +427,6 @@ namespace Vision2.Api {
             client.FollowRedirects = false;
 
             var response = client.Execute(request);
-
-            if ((int)response.StatusCode > 300) {
-                throw new ApiAccessException(response.StatusDescription) {
-                    StatusCode = response.StatusCode,
-                    StatusDescription = response.StatusDescription,
-                    RequestUrl = response.ResponseUri.AbsoluteUri
-                };
-            }
-
             return response;
         }
 
@@ -456,15 +435,6 @@ namespace Vision2.Api {
             client.FollowRedirects = false;
 
             var response = client.Execute<S>(request);
-
-            if ((int)response.StatusCode > 300) {
-                throw new ApiAccessException(response.ErrorException != null ? response.ErrorException.Message : "API Access Exception") {
-                    StatusCode = response.StatusCode,
-                    StatusDescription = response.StatusDescription,
-                    RequestUrl = response.ResponseUri.AbsoluteUri
-                };
-            }
-
             return response;
         }
 
@@ -472,15 +442,6 @@ namespace Vision2.Api {
             var client = new RestSharp.RestClient(_baseUrl);
             client.FollowRedirects = false;
             var response = client.Execute<List<T>>(request);
-
-            if ((int)response.StatusCode > 300) {
-                throw new ApiAccessException(response.StatusDescription) {
-                    StatusCode = response.StatusCode,
-                    StatusDescription = response.StatusDescription,
-                    RequestUrl = response.ResponseUri.AbsoluteUri
-                };
-            }
-
             return response;
         }
 

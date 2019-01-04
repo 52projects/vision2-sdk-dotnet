@@ -29,7 +29,7 @@ namespace Vision2.Api {
         /// <param name="username">The username to authenticate</param>
         /// <param name="password">The password to authenticate
         /// <returns>An OAuth Token object to use for subsequent requests</returns>
-        public static async Task<IVision2Response<Vision2Token>> RequestAccessTokenAsync(Vision2Options options) {
+        public static async Task<IVision2RestResponse<Vision2Token>> RequestAccessTokenAsync(Vision2Options options) {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls11;
             using (var httpClient = new HttpClient()) {
                 var content = new FormUrlEncodedContent(new[]
@@ -44,7 +44,7 @@ namespace Vision2.Api {
                 var response = await httpClient.PostAsync($"{url}/token", content);
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                var v2Response = new Vision2Response<Vision2Token> {
+                var v2Response = new Vision2RestResponse<Vision2Token> {
                     StatusCode = response.StatusCode,
                     RequestValue = Newtonsoft.Json.JsonConvert.SerializeObject(content)
                 };
@@ -65,7 +65,7 @@ namespace Vision2.Api {
             }
         }
 
-        public static async Task<IVision2Response<Vision2Token>> RefreshAccessTokenAsync(Vision2Options options, string refreshToken) {
+        public static async Task<IVision2RestResponse<Vision2Token>> RefreshAccessTokenAsync(Vision2Options options, string refreshToken) {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls11;
             using (var httpClient = new HttpClient()) {
                 try {
@@ -80,7 +80,7 @@ namespace Vision2.Api {
                     var response = await httpClient.PostAsync($"{url}/token", content);
                     var responseContent = await response.Content.ReadAsStringAsync();
 
-                    var v2Response = new Vision2Response<Vision2Token> {
+                    var v2Response = new Vision2RestResponse<Vision2Token> {
                         StatusCode = response.StatusCode,
                         RequestValue = Newtonsoft.Json.JsonConvert.SerializeObject(content)
                     };
