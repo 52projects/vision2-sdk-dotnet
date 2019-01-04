@@ -48,15 +48,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\QOAttribute.cs" />
+    <Compile Include="Enum\ProjectStatusType.cs" />
+    <Compile Include="Enum\StatusType.cs" />
     <Compile Include="Exceptions\BaseException.cs" />
     <Compile Include="Exceptions\PropertyNotAllowedException.cs" />
     <Compile Include="Extensions\RestSharpExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Model\Fund.cs" />
+    <Compile Include="Model\Mission.cs" />
+    <Compile Include="Model\Vision2PagedResponse.cs" />
+    <Compile Include="Model\Vision2PagedResult.cs" />
+    <Compile Include="Model\Vision2ResponseData.cs" />
     <Compile Include="Model\Vision2RestResponse.cs" />
+    <Compile Include="Model\Vision2Result.cs" />
     <Compile Include="Model\Vision2Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryObject\BaseQO.cs" />
+    <Compile Include="QueryObject\FundQO.cs" />
+    <Compile Include="QueryObject\MissionQO.cs" />
     <Compile Include="Sets\BaseApiSet.cs" />
+    <Compile Include="Sets\FundSet.cs" />
+    <Compile Include="Sets\MissionSet.cs" />
     <Compile Include="Vision2Client.cs" />
     <Compile Include="Vision2Options.cs" />
   </ItemGroup>

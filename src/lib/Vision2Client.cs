@@ -4,21 +4,32 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Vision2.Api.Extensions;
 using Vision2.Api.Model;
+using Vision2.Api.Sets;
 
 namespace Vision2.Api {
     public class Vision2Client {
+        private readonly MissionSet _missionSet;
+        private readonly FundSet _fundSet;
+
         public Vision2Client(Vision2Options options, Vision2Token token) {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls11;
+
+            _missionSet = new MissionSet(token, options.IsStaging);
+            _fundSet = new FundSet(token, options.IsStaging);
         }
 
-            /// <summary>
-            /// Request an access token from Vision2
-            /// </summary>
-            /// <param name="options">Options for the Vision2 Client</param>
-            /// <param name="username">The username to authenticate</param>
-            /// <param name="password">The password to authenticate
-            /// <returns>An OAuth Token object to use for subsequent requests</returns>
-            public static async Task<IVision2Response<Vision2Token>> RequestAccessTokenAsync(Vision2Options options) {
+        public MissionSet Missions => _missionSet;
+
+        public FundSet Funds => _fundSet;
+
+        /// <summary>
+        /// Request an access token from Vision2
+        /// </summary>
+        /// <param name="options">Options for the Vision2 Client</param>
+        /// <param name="username">The username to authenticate</param>
+        /// <param name="password">The password to authenticate
+        /// <returns>An OAuth Token object to use for subsequent requests</returns>
+        public static async Task<IVision2Response<Vision2Token>> RequestAccessTokenAsync(Vision2Options options) {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls11;
             using (var httpClient = new HttpClient()) {
                 var content = new FormUrlEncodedContent(new[]
@@ -93,6 +104,6 @@ namespace Vision2.Api {
 
     public enum ContentType {
         XML = 1,
-        JSON = 2    
+        JSON = 2
     }
 }

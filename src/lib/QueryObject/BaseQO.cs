@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -6,17 +6,11 @@ using Vision2.Api.Attributes;
 
 namespace Vision2.Api.QueryObject {
     public abstract class BaseQO {
-        [QO("page")]
+        [QO("PageIndex")]
         public int? PageNumber { get; set; }
 
-        [QO("recordsPerPage")]
+        [QO("PageSize")]
         public int? RecordsPerPage { get; set; }
-
-        /// <summary>
-        /// Fellowship One changed the query variable from recordsPerPage on the activities realm
-        /// </summary>
-        [QO("pagesize")]
-        public int? PageSize { get; set; }
 
         internal string ToQueryString() { //non-encoded query string
             StringBuilder sb = new StringBuilder();
@@ -42,7 +36,7 @@ namespace Vision2.Api.QueryObject {
                             DateTime? d = value as Nullable<DateTime>;
                             if (d != null) { // DateTime need special handling for converting to string.
                                 string format = GetFormat(p);
-                                ret.Add(GetKey(p), d.Value.ToString(format == null ? "yyyy-MM-dd" : format));
+                                ret.Add(GetKey(p), d.Value.ToString(format == null ? "yyyy-MM-ddThh:mm:ss.fffZ" : format));
                             }
                             else {
                                 ret.Add(GetKey(p), value.ToString());

@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationTests.cs" />
+    <Compile Include="BaseTest.cs" />
+    <Compile Include="FundTests.cs" />
+    <Compile Include="MissionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

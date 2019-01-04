@@ -10,6 +10,7 @@ using Vision2.Api.Exceptions;
 using System.IO;
 using Vision2.Api.Model;
 using Vision2.Api.QueryObject;
+using Newtonsoft.Json;
 
 
 namespace Vision2.Api {
@@ -18,9 +19,9 @@ namespace Vision2.Api {
         private readonly Vision2Token _token;
         private readonly string _baseUrl;
         private readonly ContentType _contentType;
-        private readonly string _subscriptionKey;
         private readonly IDictionary<string, string> _requestHeaders;
         private IDictionary<string, string> _parameters = new Dictionary<string, string>();
+        private bool _isStaging = false;
 
         public string BaseUrl { get { return _baseUrl; } }
 
@@ -68,11 +69,11 @@ namespace Vision2.Api {
         #endregion Properties
 
         #region Constructor
-        protected BaseApiSet(Vision2Token token, string subscriptionKey, string baseUrl, ContentType contentType = ContentType.JSON) {
+        protected BaseApiSet(Vision2Token token, bool isStaging = false, ContentType contentType = ContentType.JSON) {
             _token = token;
-            _baseUrl = baseUrl;
+            _baseUrl = isStaging ? "https://demo-v2orgapi.demo-webase.p.azurewebsites.net" : "https://vision2.com";
             _contentType = contentType;
-            _subscriptionKey = subscriptionKey;
+            _isStaging = isStaging;
         }
         #endregion Constructor
 
@@ -153,17 +154,16 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2Response<S> Search<S>(BaseQO qo) where S : new() {
+        public virtual IVision2Response<Vision2PagedResponse<S>> Search<S>(BaseQO qo) where S : new() {
             if (string.IsNullOrWhiteSpace(SearchUrl)) {
                 throw new NotImplementedException("The property SearchUrl has no value on the ApiSet.");
             }
-            var request = CreateRestRequest(Method.GET, SearchUrl);
+            var request = CreateRestRequest(Method.POST, SearchUrl);
+            var query = qo.ToDictionary();
+            var queryJson = JsonConvert.SerializeObject(query);
+            request.AddBody(queryJson);
 
-            foreach (var pair in qo.ToDictionary()) {
-                request.AddParameter(pair.Key, pair.Value);
-            }
-
-            var list = ExecuteCustomRequest<S>(request);
+            var list = ExecuteCustomRequest<Vision2PagedResponse<S>>(request);
             return list.ToVision2Response();
         }
 
@@ -492,7 +492,6 @@ namespace Vision2.Api {
             request.AddHeader("Accept-Encoding", "gzip,deflate");
             request.AddHeader("Content-Type", !string.IsNullOrEmpty(contentType) ? contentType : _contentType == ContentType.XML ? "application/xml" : "application/json");
             request.AddHeader("Authorization", $"Bearer {_token.access_token}");
-            request.AddHeader("Ocp-Apim-Subscription-Key", _subscriptionKey);
 
             if (_requestHeaders != null && _requestHeaders.Count > 0) {
                 foreach (var current in _requestHeaders) {

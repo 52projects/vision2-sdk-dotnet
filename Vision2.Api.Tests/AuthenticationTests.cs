@@ -5,22 +5,16 @@ using Shouldly;
 
 namespace Vision2.Api.Tests {
     [TestFixture]
-    public class AuthenticationTests {
-        private Vision2Options _options;
+    public class AuthenticationTests : BaseTest {
 
         [SetUp]
         public void Setup() {
-            _options = new Vision2Options {
-                IsStaging = true,
-                TenantCode = "",
-                Username = "",
-                Password = ""
-            };
+
         }
 
         [Test]
         public async Task integration_authentication_login_with_creds() {
-           var token = await Vision2Client.RequestAccessTokenAsync(_options);
+           var token = await Vision2Client.RequestAccessTokenAsync(Options);
             token.Data.ShouldNotBe(null);
             token.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
         }
