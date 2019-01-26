@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NUnit.Framework;
+using Shouldly;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Vision2.Api.Model;
-using NUnit.Framework;
-using Vision2.Api.Model;
 using Vision2.Api.QueryObject;
-using Shouldly;
 
 namespace Vision2.Api.Tests {
     [TestFixture]

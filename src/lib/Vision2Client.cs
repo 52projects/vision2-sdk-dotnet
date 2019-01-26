@@ -10,17 +10,21 @@ namespace Vision2.Api {
     public class Vision2Client {
         private readonly MissionSet _missionSet;
         private readonly FundSet _fundSet;
+        private readonly IndividualSet _individualSet;
 
         public Vision2Client(Vision2Options options, Vision2Token token) {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls11;
 
             _missionSet = new MissionSet(token, options.IsStaging);
             _fundSet = new FundSet(token, options.IsStaging);
+            _individualSet = new IndividualSet(token, options.IsStaging);
         }
 
         public MissionSet Missions => _missionSet;
 
         public FundSet Funds => _fundSet;
+
+        public IndividualSet Individuals => _individualSet;
 
         /// <summary>
         /// Request an access token from Vision2

@@ -12,6 +12,9 @@ namespace Vision2.Api.QueryObject {
         [QO("PageSize")]
         public int? RecordsPerPage { get; set; }
 
+        [QOIgnore]
+        public bool IncludeNulls { get; set; }
+
         internal string ToQueryString() { //non-encoded query string
             StringBuilder sb = new StringBuilder();
 
@@ -31,7 +34,7 @@ namespace Vision2.Api.QueryObject {
                 if (!IgnoreProperty(p)) {
                     if (IsRightType(p.PropertyType)) {
                         object value = p.GetValue(this, null);
-                        if (value != null && value.ToString() != string.Empty) {// null means the property won't be the part of search parameters
+                        if ((value != null && value.ToString() != string.Empty) || IncludeNulls) {// null means the property won't be the part of search parameters
                             //ret.Add(GetKey(p), value.ToString());
                             DateTime? d = value as Nullable<DateTime>;
                             if (d != null) { // DateTime need special handling for converting to string.
@@ -39,7 +42,7 @@ namespace Vision2.Api.QueryObject {
                                 ret.Add(GetKey(p), d.Value.ToString(format == null ? "yyyy-MM-ddThh:mm:ss.fffZ" : format));
                             }
                             else {
-                                ret.Add(GetKey(p), value.ToString());
+                                ret.Add(GetKey(p), value == null ? null : value.ToString());
                             }
                         }
                     }

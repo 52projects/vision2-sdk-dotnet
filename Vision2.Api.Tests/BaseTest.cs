@@ -11,7 +11,7 @@ namespace Vision2.Api.Tests {
         public BaseTest() {
             Options = new Vision2Options {
                 IsStaging = true,
-                TenantCode = "prodmgmt3",
+                TenantCode = "focusministry",
                 Username = "chadmeyer@52projectsllc.com",
                 Password = "Pa$$w0rd"
             };
