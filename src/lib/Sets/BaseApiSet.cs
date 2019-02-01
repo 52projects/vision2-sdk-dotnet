@@ -11,7 +11,8 @@ using System.IO;
 using Vision2.Api.Model;
 using Vision2.Api.QueryObject;
 using Newtonsoft.Json;
-
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Vision2.Api {
     public abstract class BaseApiSet<T> where T : new() {
@@ -161,10 +162,45 @@ namespace Vision2.Api {
             var request = CreateRestRequest(Method.POST, SearchUrl);
             var query = qo.ToDictionary();
             var queryJson = JsonConvert.SerializeObject(query);
-            request.AddBody(queryJson);
+            request.AddBody(query);
 
             var list = ExecuteCustomRequest<Vision2PagedResponse<S>>(request);
             return list.ToVision2Response();
+        }
+
+        private HttpClient CreateClient() {
+            var httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri(BaseUrl);
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token.access_token);
+            return httpClient;
+        }
+
+        internal async Task<IVision2RestResponse<Vision2PagedResponse<T>>> FindAsync(string url, BaseQO qo) {
+            using (var http = CreateClient()) {
+                var query = qo.ToDictionary();
+                var queryJson = JsonConvert.SerializeObject(query);
+                var content = new StringContent(queryJson, Encoding.UTF8, "application/json");
+                var response = await http.PostAsync(url, content);
+                return await ConvertResponseAsync<Vision2PagedResponse<T>>(response);
+            }
+        }
+
+        private async Task<IVision2RestResponse<S>> ConvertResponseAsync<S>(HttpResponseMessage response) where S : new() {
+            var vision2Response = new Vision2RestResponse<S> {
+                StatusCode = response.StatusCode,
+                JsonResponse = await response.Content.ReadAsStringAsync()
+            };
+
+            if (!string.IsNullOrEmpty(vision2Response.JsonResponse) && (int)response.StatusCode > 300) {
+                var responseError = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(vision2Response.JsonResponse);
+                vision2Response.ErrorMessage = responseError.error_message;
+            }
+            else {
+                vision2Response.Data = JsonConvert.DeserializeObject<S>(vision2Response.JsonResponse);
+            }
+            return vision2Response;
         }
 
         public virtual IRestResponse Post(string url) {

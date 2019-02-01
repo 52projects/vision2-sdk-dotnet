@@ -4,7 +4,7 @@ using Vision2.Api.Enum;
 namespace Vision2.Api.QueryObject {
     public class IndividualQO : BaseQO {
         [QO("OrganizationID")]
-        public int OrganizationID { get; set; }
+        public int? OrganizationID { get; set; }
 
         [QO("UseComplex")]
         public bool UseComplex { get; set; }

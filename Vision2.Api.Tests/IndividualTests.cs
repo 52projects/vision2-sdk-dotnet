@@ -21,12 +21,11 @@ namespace Vision2.Api.Tests {
         [Test]
         public async Task integration_individuals_search_individuals() {
             var qo = new IndividualQO {
-                UseComplex = true,
                 PageNumber = 0,
                 RecordsPerPage = 20,
-                FirstName = "Chad",
-                LastName = "Meyer",
                 OrganizationID = 246101,
+                FirstName = "Chad",
+                LastName = "Meyer"
             };
 
             var response = _client.Individuals.Find(qo);

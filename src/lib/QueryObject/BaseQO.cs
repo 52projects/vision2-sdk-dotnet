@@ -26,8 +26,8 @@ namespace Vision2.Api.QueryObject {
             return sb.ToString().TrimEnd('&');
         }
 
-        internal Dictionary<string, string> ToDictionary() {
-            var ret = new Dictionary<string, string>();
+        internal Dictionary<string, object> ToDictionary() {
+            var ret = new Dictionary<string, object>();
             var props = this.GetType().GetProperties();
 
             foreach (PropertyInfo p in props) {
@@ -42,7 +42,7 @@ namespace Vision2.Api.QueryObject {
                                 ret.Add(GetKey(p), d.Value.ToString(format == null ? "yyyy-MM-ddThh:mm:ss.fffZ" : format));
                             }
                             else {
-                                ret.Add(GetKey(p), value == null ? null : value.ToString());
+                                ret.Add(GetKey(p), value == null ? null : value);
                             }
                         }
                     }
