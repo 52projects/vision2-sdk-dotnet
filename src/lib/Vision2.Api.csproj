@@ -54,6 +54,8 @@
     <Compile Include="Enum\PhoneType.cs" />
     <Compile Include="Enum\ProjectStatusType.cs" />
     <Compile Include="Enum\StatusType.cs" />
+    <Compile Include="Enum\VolunteerParticipantStatus.cs" />
+    <Compile Include="Enum\VolunteerParticipantType.cs" />
     <Compile Include="Exceptions\BaseException.cs" />
     <Compile Include="Exceptions\PropertyNotAllowedException.cs" />
     <Compile Include="Extensions\RestSharpExtensions.cs" />
@@ -72,15 +74,19 @@
     <Compile Include="Model\Vision2RestResponse.cs" />
     <Compile Include="Model\Vision2Result.cs" />
     <Compile Include="Model\Vision2Token.cs" />
+    <Compile Include="Model\VolunteerParticipant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryObject\BaseQO.cs" />
     <Compile Include="QueryObject\FundQO.cs" />
     <Compile Include="QueryObject\IndividualQO.cs" />
     <Compile Include="QueryObject\MissionQO.cs" />
+    <Compile Include="QueryObject\VolunteerOpportunityQO.cs" />
     <Compile Include="Sets\BaseApiSet.cs" />
     <Compile Include="Sets\FundSet.cs" />
     <Compile Include="Sets\IndividualSet.cs" />
     <Compile Include="Sets\MissionSet.cs" />
+    <Compile Include="Sets\VolunteerOpportunitySet.cs" />
+    <Compile Include="Sets\VolunteerParticipantSet.cs" />
     <Compile Include="Vision2Client.cs" />
     <Compile Include="Vision2Options.cs" />
   </ItemGroup>

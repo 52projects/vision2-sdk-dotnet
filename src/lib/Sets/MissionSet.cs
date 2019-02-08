@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vision2.Api.Model;
-using Vision2.Api;
-using System.Collections.Generic;
+﻿using Vision2.Api.Model;
 using Vision2.Api.QueryObject;
 
 namespace Vision2.Api.Sets {

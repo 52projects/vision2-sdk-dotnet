@@ -23,9 +23,10 @@ namespace Vision2.Api.Tests {
             var qo = new IndividualQO {
                 PageNumber = 0,
                 RecordsPerPage = 20,
-                OrganizationID = 246101,
-                FirstName = "Chad",
-                LastName = "Meyer"
+                //OrganizationID = 246101,
+                //FirstName = "Ch",
+                //LastName = "Me",
+                EmailAddress = "haleyb07"
             };
 
             var response = _client.Individuals.Find(qo);

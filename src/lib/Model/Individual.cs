@@ -7,6 +7,13 @@ using Vision2.Api.Enum;
 
 namespace Vision2.Api.Model {
     public class Individual {
+        public Individual() {
+            Names = new List<Name>();
+            Emails = new List<Email>();
+            Addresses = new List<Address>();
+            Phones = new List<Phone>();
+        }
+
         public int? IndividualProfileId { get; set; }
 
         public GenderType? GenderType { get; set; }
