@@ -13,6 +13,7 @@ namespace Vision2.Api {
         private readonly IndividualSet _individualSet;
         private readonly VolunteerParticipantSet _volunteerParticipantSet;
         private readonly VolunteerOpportunitySet _volunteerOpportunitySet;
+        private readonly VolunteerRoleSet _volunteerRoleSet;
 
         public Vision2Client(Vision2Options options, Vision2Token token) {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls11;
@@ -22,6 +23,7 @@ namespace Vision2.Api {
             _individualSet = new IndividualSet(token, options.IsStaging);
             _volunteerParticipantSet = new VolunteerParticipantSet(token, options.IsStaging);
             _volunteerOpportunitySet = new VolunteerOpportunitySet(token, options.IsStaging);
+            _volunteerRoleSet = new VolunteerRoleSet(token, options.IsStaging);
         }
 
         public MissionSet Missions => _missionSet;
@@ -33,6 +35,8 @@ namespace Vision2.Api {
         public VolunteerParticipantSet VolunteerParticipants => _volunteerParticipantSet;
 
         public VolunteerOpportunitySet VolunteerOpportunities => _volunteerOpportunitySet;
+
+        public VolunteerRoleSet VolunteerRoles => _volunteerRoleSet;
 
         /// <summary>
         /// Request an access token from Vision2

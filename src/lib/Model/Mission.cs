@@ -7,28 +7,25 @@ using Vision2.Api.Enum;
 
 namespace Vision2.Api.Model {
     public class Mission {
-        public int ControllingOrganizationId { get; set; }
+        public int OrganizationId { get; set; }
 
-        public int FundableId { get; set; }
+        public int? FundableId { get; set; }
 
-        public int FundableReferenceType { get; set; }
+        public int? FundableReferenceType { get; set; }
 
-        public int MobilePhotoId { get; set; }
+        public int? MobilePhotoId { get; set; }
 
-        public int WebPhotoId { get; set; }
+        public int? WebPhotoId { get; set; }
 
-        public int CarouselPhotoId { get; set; }
+        public int? CarouselPhotoId { get; set; }
 
-        public int GivingLinkId { get; set; }
+        public int? GivingLinkId { get; set; }
 
         public int? ConnectLinkId { get; set; }
 
         public int OrganizationType { get; set; }
-
-        // What is the difference between status and project status???
-        public int Status { get; set; }
-
-        public int OrganizationId { get; set; }
+        
+        public ProjectStatusType Status { get; set; }
 
         public bool IsControlling { get; set; }
 
@@ -60,8 +57,6 @@ namespace Vision2.Api.Model {
 
         public object SortKey { get; set; }
 
-        public ProjectStatusType ProjectStatus { get; set; }
-
         public DateTime? EndDate { get; set; }
 
         public DateTime StartDate { get; set; }
@@ -76,7 +71,7 @@ namespace Vision2.Api.Model {
 
         public bool IsHiddenFromDonorSearch { get; set; }
 
-        public int? GivingGoal { get; set; }
+        public decimal? GivingGoal { get; set; }
 
         public bool IncludePledgesInGoalProgress { get; set; }
 
@@ -95,5 +90,13 @@ namespace Vision2.Api.Model {
         public List<int> ExternalKeys { get; set; }
 
         public int Id { get; set; }
+
+        public int MinimumNumberOfParticipants { get; set; }
+
+        public int MaximumNumberOfParticipants { get; set; }
+
+        public int OrganizationFundId { get; set; }
+
+        public decimal TargetPerPartcipant { get; set; }
     }
 }

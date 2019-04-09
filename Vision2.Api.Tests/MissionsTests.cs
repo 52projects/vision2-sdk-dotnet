@@ -40,5 +40,31 @@ namespace Vision2.Api.Tests {
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
             response.Data.ShouldNotBe(null);
         }
+
+        [Test]
+        public async Task integration_missions_create_mission() {
+            var mission = new Mission {
+                AccountSegment = "fmtest2019",
+                DesignationCode = "FMTEST2019",
+                EndDate = DateTime.UtcNow.AddDays(30),
+                StartDate = DateTime.UtcNow,
+                OrganizationFundId = 293803,
+                IncludePledgesInGoalProgress = true,
+                IsActive = true,
+                OrganizationType = 1,
+                LongDescription = "Mission trip description",
+                MobileDescription = "Mobile Trip Description",
+                ShortDescription = "Trip Description",
+                Status = Enum.ProjectStatusType.Pending,
+                Name = "Focus Test",
+                MinimumNumberOfParticipants = 2,
+                MaximumNumberOfParticipants = 20,
+                TargetPerPartcipant = 1200,
+                OrganizationId = 246101
+            };
+
+            var results = _client.Missions.Create(mission);
+            results.Data.ShouldNotBe(null);
+        }
     }
 }

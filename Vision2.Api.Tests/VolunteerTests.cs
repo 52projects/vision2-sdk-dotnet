@@ -7,7 +7,7 @@ using Vision2.Api.QueryObject;
 
 namespace Vision2.Api.Tests {
     [TestFixture]
-    public class ParticipantTests : BaseTest {
+    public class VolunteerTests : BaseTest {
         private Vision2Token _token;
         private Vision2Client _client;
 
@@ -21,9 +21,9 @@ namespace Vision2.Api.Tests {
         [Test]
         public async Task integration_participants_create() {
             var participant = new VolunteerParticipant {
-                IndividualProfileId = 1,
+                IndividualProfileId = 987701,
                 ParticipantStauts = Enum.VolunteerParticipantStatus.PendingReview,
-                VolunteerOpportunityId = 1
+                VolunteerOpportunityId = 293802,
             };
 
 
@@ -33,12 +33,13 @@ namespace Vision2.Api.Tests {
         }
 
         [Test]
-        public async Task integration_volunteer_opportunities() {
-            var response = _client.VolunteerOpportunities.Search<dynamic>(new VolunteerOpportunityQO {
-                 RecordsPerPage = 20,
-                 PageNumber = 0
-            });
-            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
+        public async Task integration_volunteer_create_role() {
+            var role = new VolunteerRole {
+                Name = "Focus Missions Team Member",
+                Description = "A team member type from Focus Missions"
+            };
+
+            var response = _client.VolunteerRoles.Create(role);
             response.Data.ShouldNotBe(null);
         }
     }

@@ -10,7 +10,7 @@ using Vision2.Api.QueryObject;
 
 namespace Vision2.Api.Sets {
     public class VolunteerParticipantSet : BaseApiSet<VolunteerParticipant> {
-        private const string _searchUrl = "/search/fund";
+        private const string _searchUrl = "/search/volunteerparticipant";
         private const string _getUrl = "/volunteerparticipant/{0}";
         private const string _createUrl = "/volunteerparticipant";
 

@@ -59,7 +59,7 @@
     <Compile Include="FundTests.cs" />
     <Compile Include="IndividualTests.cs" />
     <Compile Include="MissionsTests.cs" />
-    <Compile Include="ParticipantTests.cs" />
+    <Compile Include="VolunteerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,9 +11,13 @@ namespace Vision2.Api.Model {
 
         public int IndividualProfileId { get; set; }
 
+        public Individual Individual { get; set; }
+
         public int DesignationId { get; set; }
 
         public int VolunteerOpportunityId { get; set; }
+
+        public int VolunteerRoleId { get; set; }
 
         public VolunteerParticipantStatus ParticipantStauts { get; set; }
     }

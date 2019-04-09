@@ -2,7 +2,7 @@
 
 namespace Vision2.Api.Sets {
     public class VolunteerOpportunitySet : BaseApiSet<dynamic> {
-        private const string _searchUrl = "/search//volunteeropportunity/";
+        private const string _searchUrl = "/search/volunteeropportunity/";
         private const string _getUrl = "/volunteeropportunity/{0}";
         private const string _listUrl = "/volunteeropportunity/";
 
