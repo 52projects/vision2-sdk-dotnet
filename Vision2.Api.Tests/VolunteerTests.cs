@@ -40,7 +40,7 @@ namespace Vision2.Api.Tests {
             };
 
             var response = _client.VolunteerRoles.Create(role);
-            response.Data.ShouldNotBe(null);
+            response.Data.Result.Id.ShouldBeGreaterThan(0);
         }
     }
 }

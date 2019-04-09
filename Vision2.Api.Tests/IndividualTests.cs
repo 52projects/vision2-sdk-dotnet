@@ -24,9 +24,9 @@ namespace Vision2.Api.Tests {
                 PageNumber = 0,
                 RecordsPerPage = 20,
                 //OrganizationID = 246101,
-                //FirstName = "Ch",
-                //LastName = "Me",
-                EmailAddress = "haleyb07"
+                FirstName = "Ch",
+                LastName = "Me",
+                //EmailAddress = "haleyb07"
             };
 
             var response = _client.Individuals.Find(qo);
@@ -64,7 +64,7 @@ namespace Vision2.Api.Tests {
 
             var response = _client.Individuals.Create(individual);
             response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
-            response.Data.IndividualProfileId.Value.ShouldBeGreaterThan(0);
+            response.Data.Result.IndividualProfileId.Value.ShouldBeGreaterThan(0);
         }
     }
 }

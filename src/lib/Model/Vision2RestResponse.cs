@@ -12,6 +12,7 @@ namespace Vision2.Api.Model {
 
         bool IsSuccessful { get; }
     }
+    
     public interface IVision2RestResponse<T> : IVision2RestResponse {
         T Data { get; set; }
     }

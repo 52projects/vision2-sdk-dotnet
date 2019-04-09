@@ -253,7 +253,7 @@ namespace Vision2.Api {
             return response.ToVision2Response();
         }
 
-        public virtual IVision2RestResponse Create<S>(S entity, string url = "") where S : new() {
+        public virtual IVision2RestResponse<Vision2Response<S>> Create<S>(S entity, string url = "") where S : new() {
             var targetUrl = string.Empty;
 
             if (!string.IsNullOrWhiteSpace(url)) {
@@ -284,11 +284,11 @@ namespace Vision2.Api {
                 request.AddParameter("application/json", Newtonsoft.Json.JsonConvert.SerializeObject(entity), ParameterType.RequestBody);
             }
 
-            var item = ExecuteRequest(request);
+            var item = ExecuteCustomRequest<Vision2Response<S>>(request);
             return item.ToVision2Response();
         }
 
-        public virtual IVision2RestResponse<T> Create(T entity, string url = "") {
+        public virtual IVision2RestResponse<Vision2Response<T>> Create(T entity, string url = "") {
             var targetUrl = string.Empty;
 
             if (!string.IsNullOrWhiteSpace(url)) {
@@ -319,11 +319,11 @@ namespace Vision2.Api {
                 request.AddParameter("application/json", Newtonsoft.Json.JsonConvert.SerializeObject(entity), ParameterType.RequestBody);
             }
 
-            var item = ExecuteRequest(request);
+            var item = ExecuteCustomRequest<Vision2Response<T>>(request);
             return item.ToVision2Response();
         }
 
-        public virtual IVision2RestResponse<T> Create(T entity, out string requestXml, string url = "") {
+        public virtual IVision2RestResponse<Vision2Response<T>> Create(T entity, out string requestXml, string url = "") {
             requestXml = entity.ToXml();
             var targetUrl = string.Empty;
 
@@ -351,7 +351,7 @@ namespace Vision2.Api {
                 request.AddParameter("application/json", Newtonsoft.Json.JsonConvert.SerializeObject(entity), ParameterType.RequestBody);
             }
 
-            var item = ExecuteRequest(request);
+            var item = ExecuteCustomRequest<Vision2Response<T>>(request);
             return item.ToVision2Response();
         }
 
@@ -376,7 +376,7 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public virtual IVision2RestResponse<T> Update(T entity, string id) {
+        public virtual IVision2RestResponse<Vision2Response<T>> Update(T entity, string id) {
             if (string.IsNullOrWhiteSpace(EditUrl)) {
                 throw new NotImplementedException("The property EditUrl has no value on the ApiSet.");
             }
@@ -389,11 +389,11 @@ namespace Vision2.Api {
                 request.AddParameter("application/json", Newtonsoft.Json.JsonConvert.SerializeObject(entity), ParameterType.RequestBody);
             }
 
-            var item = ExecuteRequest(request);
+            var item = ExecuteCustomRequest<Vision2Response<T>>(request);
             return item.ToVision2Response();
         }
 
-        public virtual IVision2RestResponse<T> Update(T entity, string id, out string requestXml) {
+        public virtual IVision2RestResponse<Vision2Response<T>> Update(T entity, string id, out string requestXml) {
             if (string.IsNullOrWhiteSpace(EditUrl)) {
                 throw new NotImplementedException("The property EditUrl has no value on the ApiSet.");
             }
@@ -407,7 +407,7 @@ namespace Vision2.Api {
                 request.AddParameter("application/json", Newtonsoft.Json.JsonConvert.SerializeObject(entity), ParameterType.RequestBody);
             }
 
-            var item = ExecuteRequest(request);
+            var item = ExecuteCustomRequest<Vision2Response<T>>(request);
             return item.ToVision2Response();
         }
 
