@@ -35,6 +35,22 @@ namespace Vision2.Api.Tests {
         }
 
         [Test]
+        public async Task integration_missions_get_mission_volunteer_opportunities() {
+            var qo = new MissionQO {
+                PageNumber = 0,
+                RecordsPerPage = 20,
+            };
+
+            var response = _client.Missions.Find(qo);
+
+            var volunteerOpportunities = _client.Missions.FindVolunteerOpportunities(response.Data.Result.PageData[0].FundableId.Value);
+            volunteerOpportunities.IsSuccessful.ShouldBe(true);
+            var missionResponse = _client.Missions.Get(response.Data.Result.PageData[0].FundableId.ToString());
+            response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
+            response.Data.ShouldNotBe(null);
+        }
+
+        [Test]
         public async Task integration_missions_get_mission() {
             var qo = new MissionQO {
                 PageNumber = 0,

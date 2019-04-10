@@ -23,7 +23,8 @@ namespace Vision2.Api.Tests {
             var participant = new VolunteerParticipant {
                 IndividualProfileId = 987701,
                 ParticipantStauts = Enum.VolunteerParticipantStatus.PendingReview,
-                VolunteerOpportunityId = 293802,
+                VolunteerOpportunityId = 294602,
+                VolunteerRoleId = 2005
             };
 
 

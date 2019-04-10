@@ -1,5 +1,6 @@
 ﻿using Vision2.Api.Model;
 using Vision2.Api.QueryObject;
+using System.Collections.Generic;
 
 namespace Vision2.Api.Sets {
     public class MissionSet : BaseApiSet<Mission> {
@@ -21,6 +22,10 @@ namespace Vision2.Api.Sets {
 
         public IVision2RestResponse<Vision2PagedResponse<Mission>> Find(MissionQO qo) {
             return Search<Mission>(qo);
+        }
+
+        public IVision2RestResponse<Vision2Response<List<VolunteerOpportunity>>> FindVolunteerOpportunities(int fundableId) {
+            return ListBySuffixUrl<VolunteerOpportunity>("/volunteeropportunity/getbydesignationid/" + fundableId);
         }
     }
 }

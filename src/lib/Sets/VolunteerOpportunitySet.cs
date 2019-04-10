@@ -1,7 +1,7 @@
 ﻿using Vision2.Api.Model;
 
 namespace Vision2.Api.Sets {
-    public class VolunteerOpportunitySet : BaseApiSet<dynamic> {
+    public class VolunteerOpportunitySet : BaseApiSet<VolunteerOpportunity> {
         private const string _searchUrl = "/search/volunteeropportunity/";
         private const string _getUrl = "/volunteeropportunity/{0}";
         private const string _listUrl = "/volunteeropportunity/";
@@ -15,5 +15,7 @@ namespace Vision2.Api.Sets {
         protected override string GetUrl => _getUrl;
 
         protected override string ListUrl => _listUrl;
+
+        protected override string CreateUrl => _listUrl;
     }
 }

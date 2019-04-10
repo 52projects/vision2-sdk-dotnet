@@ -13,7 +13,7 @@ namespace Vision2.Api.Model {
 
         public Individual Individual { get; set; }
 
-        public int DesignationId { get; set; }
+        public int? DesignationId { get; set; }
 
         public int VolunteerOpportunityId { get; set; }
 

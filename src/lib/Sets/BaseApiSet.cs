@@ -72,7 +72,7 @@ namespace Vision2.Api {
         #region Constructor
         protected BaseApiSet(Vision2Token token, bool isStaging = false, ContentType contentType = ContentType.JSON) {
             _token = token;
-            _baseUrl = isStaging ? "https://demo-v2orgapi.demo-webase.p.azurewebsites.net" : "https://vision2.com";
+            _baseUrl = isStaging ? "https://api.v2sdemo.com" : "https://api.vision2systems.com";
             _contentType = contentType;
             _isStaging = isStaging;
         }
@@ -100,9 +100,9 @@ namespace Vision2.Api {
             return item.ToVision2Response();
         }
 
-        public IVision2RestResponse<List<S>> ListBySuffixUrl<S>(string url) where S : new() {
+        public IVision2RestResponse<Vision2Response<List<S>>> ListBySuffixUrl<S>(string url) where S : new() {
             var request = CreateRestRequest(Method.GET, url);
-            var item = ExecuteCustomRequest<List<S>>(request);
+            var item = ExecuteCustomRequest<Vision2Response<List<S>>>(request);
 
             return item.ToVision2Response();
         }

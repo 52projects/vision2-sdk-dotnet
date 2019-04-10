@@ -74,6 +74,7 @@
     <Compile Include="Model\Vision2RestResponse.cs" />
     <Compile Include="Model\Vision2Result.cs" />
     <Compile Include="Model\Vision2Token.cs" />
+    <Compile Include="Model\VolunteerOpportunity.cs" />
     <Compile Include="Model\VolunteerParticipant.cs" />
     <Compile Include="Model\VolunteerRequirement.cs" />
     <Compile Include="Model\VolunteerRole.cs" />
