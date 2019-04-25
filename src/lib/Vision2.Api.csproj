@@ -66,6 +66,7 @@
     <Compile Include="Model\Individual.cs" />
     <Compile Include="Model\Mission.cs" />
     <Compile Include="Model\Name.cs" />
+    <Compile Include="Model\Payment.cs" />
     <Compile Include="Model\Phone.cs" />
     <Compile Include="Model\Vision2PagedResponse.cs" />
     <Compile Include="Model\Vision2PagedResult.cs" />

@@ -55,7 +55,7 @@ namespace Vision2.Api {
                     new KeyValuePair<string, string>("password", options.Password),
                 });
 
-                var url = new Uri(options.IsStaging ? $"https://{options.TenantCode}.v2sdemo.com" : $"https://{options.TenantCode}.vision2systems.com");
+                var url = new Uri(options.IsStaging ? $"https://{options.TenantCode}.v2sqa.com" : $"https://{options.TenantCode}.vision2systems.com");
 
                 var response = await httpClient.PostAsync($"{url}/token", content);
                 var responseContent = await response.Content.ReadAsStringAsync();
