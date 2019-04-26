@@ -72,7 +72,7 @@ namespace Vision2.Api {
         #region Constructor
         protected BaseApiSet(Vision2Token token, bool isStaging = false, ContentType contentType = ContentType.JSON) {
             _token = token;
-            _baseUrl = isStaging ? "https://api.v2sdemo.com" : "https://api.vision2systems.com";
+            _baseUrl = isStaging ? "https://api.v2sqa.com" : "https://api.vision2systems.com";
             _contentType = contentType;
             _isStaging = isStaging;
         }
