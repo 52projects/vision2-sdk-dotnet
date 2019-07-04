@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 namespace Vision2.Api {
     public class Vision2Options {
         public Vision2Options() {
-            IsStaging = false;
         }
 
-        public bool IsStaging { get; set; }
+        public string SignInUrl { get; set; }
 
-        public string TenantCode { get; set; }
+        public string ApiUrl { get; set; }
 
         public string Username { get; set; }
 

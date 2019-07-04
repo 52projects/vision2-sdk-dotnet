@@ -14,7 +14,7 @@ namespace Vision2.Api.Sets {
         private const string _getUrl = "/volunteerparticipant/{0}";
         private const string _createUrl = "/volunteerparticipant";
 
-        public VolunteerParticipantSet(Vision2Token token, bool isStaging) : base(token, isStaging) {
+        public VolunteerParticipantSet(Vision2Token token, string apiUrl) : base(token, apiUrl) {
 
         }
 

@@ -8,7 +8,7 @@ namespace Vision2.Api.Sets {
         private const string _getUrl = "/missiontrip/{0}";
         private const string _createUrl = "/missiontrip";
 
-        public MissionSet(Vision2Token token, bool isStaging) : base(token, isStaging) {
+        public MissionSet(Vision2Token token, string apiUrl) : base(token, apiUrl) {
 
         }
 

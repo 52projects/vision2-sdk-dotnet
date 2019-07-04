@@ -6,7 +6,7 @@ namespace Vision2.Api.Sets {
         private const string _searchUrl = "/search/fund";
         private const string _getUrl = "/fund/{0}";
 
-        public FundSet(Vision2Token token, bool isStaging) : base(token, isStaging) {
+        public FundSet(Vision2Token token, string apiUrl) : base(token, apiUrl) {
 
         }
 

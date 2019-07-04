@@ -51,6 +51,7 @@
     <Compile Include="Enum\AddressType.cs" />
     <Compile Include="Enum\CountryTypeCode.cs" />
     <Compile Include="Enum\GenderType.cs" />
+    <Compile Include="Enum\PaymentMethodType.cs" />
     <Compile Include="Enum\PhoneType.cs" />
     <Compile Include="Enum\ProjectStatusType.cs" />
     <Compile Include="Enum\StatusType.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Sets\FundSet.cs" />
     <Compile Include="Sets\IndividualSet.cs" />
     <Compile Include="Sets\MissionSet.cs" />
+    <Compile Include="Sets\PaymentSet.cs" />
     <Compile Include="Sets\VolunteerOpportunitySet.cs" />
     <Compile Include="Sets\VolunteerParticipantSet.cs" />
     <Compile Include="Sets\VolunteerRoleSet.cs" />

@@ -14,7 +14,7 @@ namespace Vision2.Api.Sets {
         private const string _getUrl = "/individual/{0}";
         private const string _createUrl = "/individual";
 
-        public IndividualSet(Vision2Token token, bool isStaging) : base(token, isStaging) {
+        public IndividualSet(Vision2Token token, string apiUrl) : base(token, apiUrl) {
 
         }
 

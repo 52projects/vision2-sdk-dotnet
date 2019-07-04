@@ -3,37 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vision2.Api.Enum;
 
 namespace Vision2.Api.Model {
 
-    public class Rootobject {
+    public class DataSubscriptionPayload<T> where T : new() {
         public string SystemName { get; set; }
         public object Key { get; set; }
-        public Data Data { get; set; }
+        public T Data { get; set; }
         public string User { get; set; }
         public string Application { get; set; }
         public int Attempt { get; set; }
     }
 
-    public class Data {
+    public class Payment {
         public int BatchId { get; set; }
         public object BatchNumber { get; set; }
         public object BatchDate { get; set; }
-        public int PaymentMethodType { get; set; }
+        public PaymentMethodType PaymentMethodType { get; set; }
         public string PaymentMethodTypeName { get; set; }
         public object CreditCardTypeCode { get; set; }
         public object CreditCardTypeName { get; set; }
         public int PaymentStatusType { get; set; }
         public float AmountDouble { get; set; }
-        public string Amount { get; set; }
+        public decimal Amount { get; set; }
         public string NetAmount { get; set; }
         public float NetAmountDouble { get; set; }
         public Individual Individual { get; set; }
         public object Organization { get; set; }
         public Appliedto[] AppliedTo { get; set; }
         public DateTime PaymentDateDate { get; set; }
-        public object RefundRequestedDate { get; set; }
-        public string PaymentDate { get; set; }
+        public DateTime? RefundRequestedDate { get; set; }
+        public DateTime PaymentDate { get; set; }
         public DateTime DepositDate { get; set; }
         public int CurrencyType { get; set; }
         public string CurrencyTypeName { get; set; }
@@ -51,7 +52,7 @@ namespace Vision2.Api.Model {
         public int OrganizationId { get; set; }
         public bool IsHistorical { get; set; }
         public object CheckNumber { get; set; }
-        public object[] ExternalKeys { get; set; }
+        public List<ExternalKey> ExternalKeys { get; set; }
         public int Id { get; set; }
     }
 
@@ -184,5 +185,19 @@ namespace Vision2.Api.Model {
         public string DesignationCode { get; set; }
         public int OrganizationFundId { get; set; }
         public object[] ExternalKeys { get; set; }
+    }
+
+    public class ExternalKey {
+        public int SystemId { get; set; }
+
+        public string KeyValue { get; set; }
+
+        public string KeyValidation { get; set; }
+
+        public string SystemName { get; set; }
+
+        public DateTime DateUpdated { get; set; }
+
+        public int VersionNumber { get; set; }
     }
 }

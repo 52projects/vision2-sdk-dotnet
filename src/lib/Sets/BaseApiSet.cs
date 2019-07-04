@@ -22,7 +22,6 @@ namespace Vision2.Api {
         private readonly ContentType _contentType;
         private readonly IDictionary<string, string> _requestHeaders;
         private IDictionary<string, string> _parameters = new Dictionary<string, string>();
-        private bool _isStaging = false;
 
         public string BaseUrl { get { return _baseUrl; } }
 
@@ -70,11 +69,10 @@ namespace Vision2.Api {
         #endregion Properties
 
         #region Constructor
-        protected BaseApiSet(Vision2Token token, bool isStaging = false, ContentType contentType = ContentType.JSON) {
+        protected BaseApiSet(Vision2Token token, string apiUrl, ContentType contentType = ContentType.JSON) {
             _token = token;
-            _baseUrl = isStaging ? "https://api.v2sqa.com" : "https://api.vision2systems.com";
+            _baseUrl = apiUrl;
             _contentType = contentType;
-            _isStaging = isStaging;
         }
         #endregion Constructor
 

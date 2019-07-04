@@ -14,16 +14,18 @@ namespace Vision2.Api {
         private readonly VolunteerParticipantSet _volunteerParticipantSet;
         private readonly VolunteerOpportunitySet _volunteerOpportunitySet;
         private readonly VolunteerRoleSet _volunteerRoleSet;
+        private readonly PaymentSet _paymentSet;
 
         public Vision2Client(Vision2Options options, Vision2Token token) {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls11;
 
-            _missionSet = new MissionSet(token, options.IsStaging);
-            _fundSet = new FundSet(token, options.IsStaging);
-            _individualSet = new IndividualSet(token, options.IsStaging);
-            _volunteerParticipantSet = new VolunteerParticipantSet(token, options.IsStaging);
-            _volunteerOpportunitySet = new VolunteerOpportunitySet(token, options.IsStaging);
-            _volunteerRoleSet = new VolunteerRoleSet(token, options.IsStaging);
+            _missionSet = new MissionSet(token, options.ApiUrl);
+            _fundSet = new FundSet(token, options.ApiUrl);
+            _individualSet = new IndividualSet(token, options.ApiUrl);
+            _volunteerParticipantSet = new VolunteerParticipantSet(token, options.ApiUrl);
+            _volunteerOpportunitySet = new VolunteerOpportunitySet(token, options.ApiUrl);
+            _volunteerRoleSet = new VolunteerRoleSet(token, options.ApiUrl);
+            _paymentSet = new PaymentSet(token, options.ApiUrl);
         }
 
         public MissionSet Missions => _missionSet;
@@ -37,6 +39,8 @@ namespace Vision2.Api {
         public VolunteerOpportunitySet VolunteerOpportunities => _volunteerOpportunitySet;
 
         public VolunteerRoleSet VolunteerRoles => _volunteerRoleSet;
+
+        public PaymentSet Payments => _paymentSet;
 
         /// <summary>
         /// Request an access token from Vision2
@@ -55,9 +59,7 @@ namespace Vision2.Api {
                     new KeyValuePair<string, string>("password", options.Password),
                 });
 
-                var url = new Uri(options.IsStaging ? $"https://{options.TenantCode}.v2sqa.com" : $"https://{options.TenantCode}.vision2systems.com");
-
-                var response = await httpClient.PostAsync($"{url}/token", content);
+                var response = await httpClient.PostAsync($"{options.SignInUrl}/token", content);
                 var responseContent = await response.Content.ReadAsStringAsync();
 
                 var v2Response = new Vision2RestResponse<Vision2Token> {
@@ -91,9 +93,7 @@ namespace Vision2.Api {
                     new KeyValuePair<string, string>("refresh_token", refreshToken),
                 });
 
-                    var url = new Uri(options.IsStaging ? $"https://{options.TenantCode}.v2sqa.com" : $"https://{options.TenantCode}.vision2systems.com");
-
-                    var response = await httpClient.PostAsync($"{url}/token", content);
+                    var response = await httpClient.PostAsync($"{options.SignInUrl}/token", content);
                     var responseContent = await response.Content.ReadAsStringAsync();
 
                     var v2Response = new Vision2RestResponse<Vision2Token> {

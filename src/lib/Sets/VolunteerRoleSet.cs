@@ -7,7 +7,7 @@ namespace Vision2.Api.Sets {
         private const string _getUrl = "/volunteerrole/{0}";
         private const string _listUrl = "/volunteerrole/";
 
-        public VolunteerRoleSet(Vision2Token token, bool isStaging) : base(token, isStaging) {
+        public VolunteerRoleSet(Vision2Token token, string apiUrl) : base(token, apiUrl) {
 
         }
 
