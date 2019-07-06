@@ -86,6 +86,7 @@
     <Compile Include="QueryObject\IndividualQO.cs" />
     <Compile Include="QueryObject\MissionQO.cs" />
     <Compile Include="QueryObject\VolunteerOpportunityQO.cs" />
+    <Compile Include="QueryObject\VolunteerRoleQO.cs" />
     <Compile Include="Sets\BaseApiSet.cs" />
     <Compile Include="Sets\FundSet.cs" />
     <Compile Include="Sets\IndividualSet.cs" />

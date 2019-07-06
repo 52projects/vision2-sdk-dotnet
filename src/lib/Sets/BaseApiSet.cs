@@ -346,7 +346,7 @@ namespace Vision2.Api {
                 request.AddParameter("application/xml", entity.ToXml(), ParameterType.RequestBody);
             }
             else if (_contentType == ContentType.JSON) {
-                request.AddParameter("application/json", Newtonsoft.Json.JsonConvert.SerializeObject(entity), ParameterType.RequestBody);
+                request.AddParameter("application/json", JsonConvert.SerializeObject(entity), ParameterType.RequestBody);
             }
 
             var item = ExecuteCustomRequest<Vision2Response<T>>(request);

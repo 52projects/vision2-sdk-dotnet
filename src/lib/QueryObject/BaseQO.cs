@@ -6,6 +6,11 @@ using Vision2.Api.Attributes;
 
 namespace Vision2.Api.QueryObject {
     public abstract class BaseQO {
+        public BaseQO() {
+            PageNumber = 0;
+            RecordsPerPage = 20;
+        }
+
         [QO("PageIndex")]
         public int? PageNumber { get; set; }
 
