@@ -24,9 +24,9 @@ namespace Vision2.Api.Sets {
 
         protected override string CreateUrl => _createUrl;
 
-        public IVision2RestResponse<Vision2PagedResponse<Individual>> Find(IndividualQO qo) {
+        public IVision2RestResponse<Vision2PagedResponse<SearchIndividual>> Find(IndividualQO qo) {
             qo.UseComplex = true;
-            return Search<Individual>(qo);
+            return Search<SearchIndividual>(qo);
         }
     }
 }
