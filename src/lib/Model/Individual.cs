@@ -14,6 +14,20 @@ namespace Vision2.Api.Model {
             Phones = new List<Phone>();
         }
 
+        public Individual(SearchIndividual searchIndividual) {
+            IndividualProfileId = searchIndividual.Id;
+            GenderType = searchIndividual.GenderType;
+            BirthDate = searchIndividual.BirthDate;
+            DeceasedAsOf = searchIndividual.DeceasedAsOf;
+            IsStaff = searchIndividual.IsStaff;
+            SiteId = searchIndividual.SiteId;
+            IsSuspect = searchIndividual.IsSuspect;
+            Names = searchIndividual.Names;
+            Addresses = searchIndividual.Addresses;
+            Phones = searchIndividual.PhoneNumbers;
+            Emails = searchIndividual.EmailAddresses;
+        }
+
         public int? IndividualProfileId { get; set; }
 
         public GenderType? GenderType { get; set; }

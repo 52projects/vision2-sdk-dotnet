@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vision2.Api.Enum;
 
 namespace Vision2.Api.Model {
@@ -14,7 +11,7 @@ namespace Vision2.Api.Model {
             PhoneNumbers = new List<Phone>();
         }
 
-        public int? IndividualProfileId { get; set; }
+        public int? Id { get; set; }
 
         public GenderType? GenderType { get; set; }
 
