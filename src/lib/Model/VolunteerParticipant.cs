@@ -7,7 +7,7 @@ using Vision2.Api.Enum;
 
 namespace Vision2.Api.Model {
     public class VolunteerParticipant {
-        public int Id { get; set; }
+        public int VolunteerParticipantId { get; set; }
 
         public int IndividualProfileId { get; set; }
 
@@ -17,6 +17,6 @@ namespace Vision2.Api.Model {
 
         public int VolunteerRoleId { get; set; }
 
-        public VolunteerParticipantStatus ParticipantStauts { get; set; }
+        public VolunteerParticipantStatus ParticipantStatus { get; set; }
     }
 }
