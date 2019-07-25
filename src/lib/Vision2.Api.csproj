@@ -62,8 +62,11 @@
     <Compile Include="Extensions\RestSharpExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Designation.cs" />
     <Compile Include="Model\Email.cs" />
+    <Compile Include="Model\ExternalKey.cs" />
     <Compile Include="Model\Fund.cs" />
+    <Compile Include="Model\Fundraiser.cs" />
     <Compile Include="Model\Individual.cs" />
     <Compile Include="Model\Mission.cs" />
     <Compile Include="Model\Name.cs" />

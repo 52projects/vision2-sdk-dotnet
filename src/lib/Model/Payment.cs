@@ -175,29 +175,4 @@ namespace Vision2.Api.Model {
         public object Quantity { get; set; }
         public float QuidProQuoAmount { get; set; }
     }
-
-    public class Designation {
-        public int FundableId { get; set; }
-        public string FundableName { get; set; }
-        public string Description { get; set; }
-        public string FundableTerm { get; set; }
-        public int FundableReferenceType { get; set; }
-        public string DesignationCode { get; set; }
-        public int OrganizationFundId { get; set; }
-        public object[] ExternalKeys { get; set; }
-    }
-
-    public class ExternalKey {
-        public int SystemId { get; set; }
-
-        public string KeyValue { get; set; }
-
-        public string KeyValidation { get; set; }
-
-        public string SystemName { get; set; }
-
-        public DateTime DateUpdated { get; set; }
-
-        public int VersionNumber { get; set; }
-    }
 }

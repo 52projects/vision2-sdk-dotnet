@@ -18,5 +18,10 @@ namespace Vision2.Api.Model {
         public int VolunteerRoleId { get; set; }
 
         public VolunteerParticipantStatus ParticipantStatus { get; set; }
+
+        public Fundraiser Fundraiser { get; set; }
     }
+}
+
+public class Designation {
 }
