@@ -105,8 +105,8 @@ namespace Vision2.Api.Model {
         public Commitment Commitment { get; set; }
         public Commitmentitem CommitmentItem { get; set; }
         public int CommitmentItemType { get; set; }
-        public float AppliedAmountDouble { get; set; }
-        public float NetAppliedAmountDouble { get; set; }
+        public decimal AppliedAmountDouble { get; set; }
+        public decimal NetAppliedAmountDouble { get; set; }
         public string NetAppliedAmount { get; set; }
         public string AppliedAmount { get; set; }
         public DateTime OriginalTransactionDate { get; set; }
