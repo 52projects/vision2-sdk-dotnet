@@ -17,6 +17,9 @@ namespace Vision2.Api.Model {
     }
 
     public class Payment {
+        public Payment() {
+            AppliedTo = new List<Appliedto>(); 
+        }
         public int BatchId { get; set; }
         public object BatchNumber { get; set; }
         public object BatchDate { get; set; }
@@ -31,7 +34,7 @@ namespace Vision2.Api.Model {
         public float NetAmountDouble { get; set; }
         public Individual Individual { get; set; }
         public object Organization { get; set; }
-        public Appliedto[] AppliedTo { get; set; }
+        public List<Appliedto> AppliedTo { get; set; }
         public DateTime PaymentDateDate { get; set; }
         public DateTime? RefundRequestedDate { get; set; }
         public DateTime PaymentDate { get; set; }
@@ -99,6 +102,10 @@ namespace Vision2.Api.Model {
     }
     
     public class Appliedto {
+        public Appliedto() {
+            Details = new List<Detail>();
+        }
+
         public int Id { get; set; }
         public int CommitmentId { get; set; }
         public int CommitmentItemId { get; set; }
@@ -110,7 +117,7 @@ namespace Vision2.Api.Model {
         public string NetAppliedAmount { get; set; }
         public string AppliedAmount { get; set; }
         public DateTime OriginalTransactionDate { get; set; }
-        public Detail[] Details { get; set; }
+        public List<Detail> Details { get; set; }
     }
 
     public class Commitment {
