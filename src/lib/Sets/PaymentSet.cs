@@ -1,6 +1,7 @@
 ﻿using System;
 using Vision2.Api.Model;
 using Vision2.Api.QueryObject;
+using System.Collections.Generic;
 
 namespace Vision2.Api.Sets {
     public class PaymentSet : BaseApiSet<Payment> {
@@ -11,5 +12,9 @@ namespace Vision2.Api.Sets {
         }
         
         protected override string GetUrl => _getUrl;
+
+        public IVision2RestResponse<Vision2Response<PaymentAdjustment>> MakePaymentAdjustments(PaymentAdjustment adjustments) {
+            return Create(adjustments, "/payment/adjust");
+        }
     }
 }

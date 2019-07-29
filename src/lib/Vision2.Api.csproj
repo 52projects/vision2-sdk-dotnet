@@ -62,6 +62,7 @@
     <Compile Include="Extensions\RestSharpExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Adjustment.cs" />
     <Compile Include="Model\Designation.cs" />
     <Compile Include="Model\Email.cs" />
     <Compile Include="Model\ExternalKey.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Model\Mission.cs" />
     <Compile Include="Model\Name.cs" />
     <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\PaymentAdjustment.cs" />
     <Compile Include="Model\Phone.cs" />
     <Compile Include="Model\SearchIndividual.cs" />
     <Compile Include="Model\Vision2PagedResponse.cs" />
