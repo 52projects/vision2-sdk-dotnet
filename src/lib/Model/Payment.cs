@@ -165,7 +165,7 @@ namespace Vision2.Api.Model {
         public int Id { get; set; }
         public int CommitmentLineItemId { get; set; }
         public int CommitmentLineItemType { get; set; }
-        public float AppliedDetailAmountDouble { get; set; }
+        public double AppliedDetailAmountDouble { get; set; }
         public string AppliedDetailAmount { get; set; }
         public float NetAppliedDetailAmountDouble { get; set; }
         public string NetAppliedDetailAmount { get; set; }
