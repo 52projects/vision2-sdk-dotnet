@@ -23,5 +23,9 @@ namespace Vision2.Api.Sets {
         protected override string GetUrl => _getUrl;
 
         protected override string CreateUrl => _createUrl;
+
+        public IVision2RestResponse<Vision2PagedResponse<SearchVolunteerParticipant>> Find(VolunteerParticipantQO qo) {
+            return Search<SearchVolunteerParticipant>(qo);
+        }
     }
 }

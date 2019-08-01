@@ -70,11 +70,14 @@
     <Compile Include="Model\Fundraiser.cs" />
     <Compile Include="Model\Individual.cs" />
     <Compile Include="Model\Mission.cs" />
+    <Compile Include="Model\Package.cs" />
+    <Compile Include="Model\SearchMission.cs" />
     <Compile Include="Model\Name.cs" />
     <Compile Include="Model\Payment.cs" />
     <Compile Include="Model\PaymentAdjustment.cs" />
     <Compile Include="Model\Phone.cs" />
     <Compile Include="Model\SearchIndividual.cs" />
+    <Compile Include="Model\SearchVolunteerParticipant.cs" />
     <Compile Include="Model\Vision2PagedResponse.cs" />
     <Compile Include="Model\Vision2PagedResult.cs" />
     <Compile Include="Model\Vision2Response.cs" />
@@ -84,6 +87,7 @@
     <Compile Include="Model\Vision2Token.cs" />
     <Compile Include="Model\VolunteerOpportunity.cs" />
     <Compile Include="Model\VolunteerParticipant.cs" />
+    <Compile Include="Model\VolunteerParticipantRole.cs" />
     <Compile Include="Model\VolunteerRequirement.cs" />
     <Compile Include="Model\VolunteerRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +96,7 @@
     <Compile Include="QueryObject\IndividualQO.cs" />
     <Compile Include="QueryObject\MissionQO.cs" />
     <Compile Include="QueryObject\VolunteerOpportunityQO.cs" />
+    <Compile Include="QueryObject\VolunteerParticipantQO.cs" />
     <Compile Include="QueryObject\VolunteerRoleQO.cs" />
     <Compile Include="Sets\BaseApiSet.cs" />
     <Compile Include="Sets\FundSet.cs" />

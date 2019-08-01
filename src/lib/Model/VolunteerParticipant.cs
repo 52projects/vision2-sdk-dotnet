@@ -22,6 +22,3 @@ namespace Vision2.Api.Model {
         public Fundraiser Fundraiser { get; set; }
     }
 }
-
-public class Designation {
-}

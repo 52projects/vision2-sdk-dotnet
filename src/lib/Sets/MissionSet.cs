@@ -20,8 +20,8 @@ namespace Vision2.Api.Sets {
 
         protected override string EditUrl => _getUrl;
 
-        public IVision2RestResponse<Vision2PagedResponse<Mission>> Find(MissionQO qo) {
-            return Search<Mission>(qo);
+        public IVision2RestResponse<Vision2PagedResponse<SearchMission>> Find(MissionQO qo) {
+            return Search<SearchMission>(qo);
         }
 
         public IVision2RestResponse<Vision2Response<List<VolunteerOpportunity>>> FindVolunteerOpportunities(int fundableId) {
