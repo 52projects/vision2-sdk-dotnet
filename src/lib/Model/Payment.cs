@@ -54,7 +54,7 @@ namespace Vision2.Api.Model {
         public float QuidProQuoAmount { get; set; }
         public int OrganizationId { get; set; }
         public bool IsHistorical { get; set; }
-        public object CheckNumber { get; set; }
+        public string CheckNumber { get; set; }
         public List<ExternalKey> ExternalKeys { get; set; }
         public int Id { get; set; }
     }
@@ -177,8 +177,8 @@ namespace Vision2.Api.Model {
         public float TotalFundedAmountDouble { get; set; }
         public float RemainingAmountDouble { get; set; }
         public int Frequency { get; set; }
-        public object EndDate { get; set; }
-        public object Package { get; set; }
+        public DateTime? EndDate { get; set; }
+        public Package Package { get; set; }
         public object Quantity { get; set; }
         public float QuidProQuoAmount { get; set; }
     }
