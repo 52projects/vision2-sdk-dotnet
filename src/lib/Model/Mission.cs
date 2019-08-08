@@ -12,7 +12,7 @@ namespace Vision2.Api.Model {
         public int Id { get; set; }
         public int MinimumNumberOfParticipants { get; set; }
         public int MaximumNumberOfParticipants { get; set; }
-        public int TargetPerPartcipant { get; set; }
+        public decimal TargetPerPartcipant { get; set; }
         public int NameDisplay { get; set; }
         public int NumberOfActiveParticipants { get; set; }
         public int FundraisingCampaignId { get; set; }
