@@ -76,7 +76,7 @@ namespace Vision2.Api.Model {
 
         public bool IsHiddenFromDonorSearch { get; set; }
 
-        public int? GivingGoal { get; set; }
+        public decimal? GivingGoal { get; set; }
 
         public bool IncludePledgesInGoalProgress { get; set; }
 
@@ -86,13 +86,11 @@ namespace Vision2.Api.Model {
 
         public int? AgencyVision2OrganizationId { get; set; }
 
-        public object IRSClassifications { get; set; }
-
-        public object IRSEntityId { get; set; }
-
         public string NTEECode { get; set; }
 
-        public List<int> ExternalKeys { get; set; }
+        public List<ExternalKey> ExternalKeys { get; set; }
+
+        public bool IsCharitable { get; set; }
 
         public int Id { get; set; }
     }
