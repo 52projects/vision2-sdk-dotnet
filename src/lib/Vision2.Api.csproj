@@ -92,6 +92,7 @@
     <Compile Include="Model\VolunteerRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryObject\BaseQO.cs" />
+    <Compile Include="QueryObject\DesignationQO.cs" />
     <Compile Include="QueryObject\FundQO.cs" />
     <Compile Include="QueryObject\IndividualQO.cs" />
     <Compile Include="QueryObject\MissionQO.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="QueryObject\VolunteerParticipantQO.cs" />
     <Compile Include="QueryObject\VolunteerRoleQO.cs" />
     <Compile Include="Sets\BaseApiSet.cs" />
+    <Compile Include="Sets\DesignationSet.cs" />
     <Compile Include="Sets\FundSet.cs" />
     <Compile Include="Sets\IndividualSet.cs" />
     <Compile Include="Sets\MissionSet.cs" />
