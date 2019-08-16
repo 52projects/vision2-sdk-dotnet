@@ -96,6 +96,7 @@
     <Compile Include="QueryObject\FundQO.cs" />
     <Compile Include="QueryObject\IndividualQO.cs" />
     <Compile Include="QueryObject\MissionQO.cs" />
+    <Compile Include="QueryObject\PaymentQO.cs" />
     <Compile Include="QueryObject\VolunteerOpportunityQO.cs" />
     <Compile Include="QueryObject\VolunteerParticipantQO.cs" />
     <Compile Include="QueryObject\VolunteerRoleQO.cs" />
