@@ -42,6 +42,8 @@ namespace Vision2.Api.Model {
 
         public bool IsSuspect { get; set; }
 
+        public bool AllowNoContactInformation { get; set; }
+
         public List<Name> Names { get; set; }
 
         public List<Address> Addresses { get; set; }
