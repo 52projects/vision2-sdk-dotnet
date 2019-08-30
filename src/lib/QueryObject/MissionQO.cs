@@ -36,5 +36,8 @@ namespace Vision2.Api.QueryObject {
 
         [QO("ProjectStatusType")]
         public ProjectStatusType? ProjectStatusType { get; set; }
+
+        [QO("DesignationCode")]
+        public string DesignationCode { get; set; }
     }
 }
