@@ -37,7 +37,7 @@ namespace Vision2.Api.Model {
         public List<Appliedto> AppliedTo { get; set; }
         public DateTime PaymentDateDate { get; set; }
         public DateTime? RefundRequestedDate { get; set; }
-        public DateTime PaymentDate { get; set; }
+        public string PaymentDate { get; set; }
         public DateTime DepositDate { get; set; }
         public int CurrencyType { get; set; }
         public string CurrencyTypeName { get; set; }
