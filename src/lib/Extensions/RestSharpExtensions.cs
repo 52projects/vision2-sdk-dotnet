@@ -21,13 +21,8 @@ namespace Vision2.Api.Extensions {
 
             response.StatusCode = restResponse.StatusCode;
             response.JsonResponse = restResponse.Content;
+            response.Data = restResponse.Data;
 
-            if ((int)restResponse.StatusCode >= 300) {
-                response.ErrorMessage = restResponse.ErrorMessage;
-            }
-            else {
-                response.Data = restResponse.Data;
-            }
             return response;
         }
 
