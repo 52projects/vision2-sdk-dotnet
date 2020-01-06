@@ -7,6 +7,8 @@ using Vision2.Api.Enum;
 
 namespace Vision2.Api.Model {
     public class Fund {
+        public int OrganizationFundId { get; set; }
+
         public int ControllingOrganizationId { get; set; }
 
         public int FundableId { get; set; }
