@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Vision2.Api.Enum;
 
 namespace Vision2.Api.Model {
-
     public class DataSubscriptionPayload<T> where T : new() {
         public string SystemName { get; set; }
         public object Key { get; set; }
@@ -18,7 +17,7 @@ namespace Vision2.Api.Model {
 
     public class Payment {
         public Payment() {
-            AppliedTo = new List<Appliedto>(); 
+            AppliedTo = new List<Appliedto>();
         }
         public int BatchId { get; set; }
         public object BatchNumber { get; set; }
@@ -33,7 +32,7 @@ namespace Vision2.Api.Model {
         public string NetAmount { get; set; }
         public float NetAmountDouble { get; set; }
         public Individual Individual { get; set; }
-        public object Organization { get; set; }
+        public Organization Organization { get; set; }
         public List<Appliedto> AppliedTo { get; set; }
         public DateTime PaymentDateDate { get; set; }
         public DateTime? RefundRequestedDate { get; set; }
@@ -100,7 +99,7 @@ namespace Vision2.Api.Model {
         public DateTime DateUpdated { get; set; }
         public int VersionNumber { get; set; }
     }
-    
+
     public class Appliedto {
         public Appliedto() {
             Details = new List<Detail>();
