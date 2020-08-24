@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vision2.Api.Enum;
 
 namespace Vision2.Api.Model {
     public class SearchMission {
+        public SearchMission() {
+            ExternalKeys = new List<ExternalKey>();
+        }
+
+        public int ControllingOrganizationId { get; set; }
+
         public int OrganizationId { get; set; }
 
         public int? FundableId { get; set; }
@@ -87,7 +90,7 @@ namespace Vision2.Api.Model {
 
         public string NTEECode { get; set; }
 
-        public List<int> ExternalKeys { get; set; }
+        public List<ExternalKey> ExternalKeys { get; set; }
 
         public int Id { get; set; }
 
