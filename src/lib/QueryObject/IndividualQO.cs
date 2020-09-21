@@ -36,5 +36,8 @@ namespace Vision2.Api.QueryObject {
 
         [QO("PhoneNumber")]
         public string PhoneNumber { get; set; }
+
+        [QO("QueryString")]
+        public string QueryString { get; set; }
     }
 }
